@@ -1,4 +1,4 @@
-# Fedora RPM spec file for PCBox including roms
+# Fedora RPM spec file for 86Box including roms
 #
 # To create RPM files from this spec file, run the following commands:
 #  sudo dnf install rpm-build
@@ -6,8 +6,8 @@
 #
 # copy this 86Box.spec file to ~/rpmbuild/SPECS and run the following commands:
 #  cd ~/rpmbuild
-#  sudo dnf builddep SPECS/PCBox.spec
-#  rpmbuild --undefine=_disable_source_fetch -ba SPECS/PCBox.spec
+#  sudo dnf builddep SPECS/86Box.spec
+#  rpmbuild --undefine=_disable_source_fetch -ba SPECS/86Box.spec
 #
 # After a successful build, you can install the RPMs as follows:
 #  sudo dnf install RPMS/$(uname -m)/86Box-3* RPMS/noarch/86Box-roms*
@@ -20,12 +20,12 @@ Version:	4.2.4
 #=======
 #Version:	4.3
 #>>>>>>> 547ae9ad6ae7a7d369fd65b8756ce2af638473dd
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	Classic PC emulator
 License:	GPLv2+
 URL:		https://pcbox-emu.xyz/
 
-Source0:	https://github.com/PCBox/PCBox/archive/refs/tags/v%{version}.tar.gz
+Source0:	https://github.com/PCBox/86Box/archive/refs/tags/v%{version}.tar.gz
 Source1:	https://github.com/PCBox/roms/archive/refs/tags/v%{romver}.zip
 
 BuildRequires: cmake
@@ -125,6 +125,7 @@ popd
 %{_datadir}/%{name}/roms
 
 %changelog
-
-* Sun Sep 15 Britney Lozza <bnlozza[AT]gmail.com> 4.2.4
+* Sun Sep 15 2024 Britney Lozza <bnlozza@gmail.com> - 4.2.4-2
 - Fixing fuel's bad forking by porting the spec file from 86Box to PCBox
+
+
